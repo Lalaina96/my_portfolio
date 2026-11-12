@@ -533,6 +533,119 @@
       color: #fbbf24;
     }
 
+    /* Floating geometric shapes - all page sections */
+    .floating-shapes {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .floating-shape {
+      position: absolute;
+      display: block;
+      opacity: 0.34;
+      border: 2px solid rgba(129, 140, 248, 0.95);
+      will-change: transform;
+      animation: pageShapeFloat 17s ease-in-out infinite;
+    }
+
+    .floating-shape.circle {
+      width: 76px; height: 76px; border-radius: 50%;
+      top: 12%; left: 7%; animation-duration: 19s;
+    }
+
+    .floating-shape.square {
+      width: 54px; height: 54px;
+      border-color: rgba(192, 132, 252, 0.98);
+      border-radius: 12px; top: 25%; right: 10%;
+      animation-name: pageShapeRotate; animation-duration: 22s;
+    }
+
+    .floating-shape.ring {
+      width: 112px; height: 112px; border-width: 10px;
+      border-color: rgba(96, 165, 250, 0.48); border-radius: 50%;
+      bottom: 12%; left: 17%; animation-duration: 24s;
+    }
+
+    .floating-shape.dot {
+      width: 19px; height: 19px; border: 0; border-radius: 50%;
+      background: rgba(192, 132, 252, 0.88);
+      top: 62%; right: 23%; animation-duration: 13s;
+    }
+
+    .floating-shape.diamond {
+      width: 40px; height: 40px;
+      border-color: rgba(129, 140, 248, 0.98);
+      border-radius: 8px; bottom: 18%; right: 8%;
+      animation-name: pageShapeRotate; animation-duration: 20s;
+    }
+
+    .floating-shape.small-circle {
+      width: 29px; height: 29px; border-radius: 50%;
+      border-color: rgba(56, 189, 248, 0.98);
+      top: 48%; left: 48%; animation-duration: 17s;
+    }
+
+    @keyframes pageShapeFloat {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      25% { transform: translate3d(25px, -31px, 0); }
+      50% { transform: translate3d(-13px, -57px, 0); }
+      75% { transform: translate3d(-29px, -19px, 0); }
+    }
+
+    @keyframes pageShapeRotate {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(25deg); }
+      50% { transform: translate3d(-23px, -43px, 0) rotate(205deg); }
+    }
+
+    /* Higher contrast for the light theme */
+    [data-theme="light"] .floating-shape {
+      opacity: 0.48;
+      border-color: rgba(79, 70, 229, 0.95);
+    }
+
+    [data-theme="light"] .floating-shape.square,
+    [data-theme="light"] .floating-shape.diamond {
+      border-color: rgba(147, 51, 234, 0.95);
+    }
+
+    [data-theme="light"] .floating-shape.ring {
+      border-color: rgba(37, 99, 235, 0.40);
+    }
+
+    [data-theme="light"] .floating-shape.dot {
+      background: rgba(147, 51, 234, 0.78);
+    }
+
+    [data-theme="light"] .floating-shape.small-circle {
+      border-color: rgba(2, 132, 199, 0.95);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floating-shape { animation: none; }
+    }
+
+
+    /* Keep section content above its decorative floating shapes */
+    body > section,
+    main > section,
+    section[id] {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    section[id] > :not(.floating-shapes) {
+      position: relative;
+      z-index: 2;
+    }
+
+    section[id] > .floating-shapes {
+      z-index: 0;
+    }
+
     /* About Section */
     .about-grid {
       display: grid;
@@ -1028,6 +1141,14 @@
 
     <!-- Home / Hero Section (Section 1 - Odd) -->
     <section id="accueil">
+      <div class="floating-shapes" aria-hidden="true">
+        <span class="floating-shape circle"></span>
+        <span class="floating-shape square"></span>
+        <span class="floating-shape ring"></span>
+        <span class="floating-shape dot"></span>
+        <span class="floating-shape diamond"></span>
+        <span class="floating-shape small-circle"></span>
+      </div>
       <div class="hero-container">
         <!-- Ordre 1 en mobile : Présentation avec Texte Tapé Détaillé et Badges -->
         <div class="hero-content reveal">
@@ -1132,6 +1253,14 @@
 
     <!-- About Section (Section 2 - Even) -->
     <section id="a-propos">
+      <div class="floating-shapes" aria-hidden="true">
+        <span class="floating-shape circle"></span>
+        <span class="floating-shape square"></span>
+        <span class="floating-shape ring"></span>
+        <span class="floating-shape dot"></span>
+        <span class="floating-shape diamond"></span>
+        <span class="floating-shape small-circle"></span>
+      </div>
       <div class="section-container">
         <div class="section-title reveal">
           <h2 data-fr="À-propos de moi" data-en="About Me">À-propos de moi</h2>
@@ -1270,6 +1399,14 @@
 
     <!-- Services Section (Section 3 - Odd) -->
     <section id="services">
+      <div class="floating-shapes" aria-hidden="true">
+        <span class="floating-shape circle"></span>
+        <span class="floating-shape square"></span>
+        <span class="floating-shape ring"></span>
+        <span class="floating-shape dot"></span>
+        <span class="floating-shape diamond"></span>
+        <span class="floating-shape small-circle"></span>
+      </div>
       <div class="section-container">
         <div class="section-title reveal">
           <h2 data-fr="Mes Services" data-en="My Services">Mes Services</h2>
@@ -1335,6 +1472,14 @@
 
     <!-- Skills Section (Section 4 - Even) -->
     <section id="competences">
+      <div class="floating-shapes" aria-hidden="true">
+        <span class="floating-shape circle"></span>
+        <span class="floating-shape square"></span>
+        <span class="floating-shape ring"></span>
+        <span class="floating-shape dot"></span>
+        <span class="floating-shape diamond"></span>
+        <span class="floating-shape small-circle"></span>
+      </div>
       <div class="section-container">
         <div class="section-title reveal">
           <h2 data-fr="Compétences & Études" data-en="Skills & Education">
@@ -1411,6 +1556,14 @@
 
     <!-- Contact Section (Section 5 - Odd) -->
     <section class="contact" id="contact">
+      <div class="floating-shapes" aria-hidden="true">
+        <span class="floating-shape circle"></span>
+        <span class="floating-shape square"></span>
+        <span class="floating-shape ring"></span>
+        <span class="floating-shape dot"></span>
+        <span class="floating-shape diamond"></span>
+        <span class="floating-shape small-circle"></span>
+      </div>
       <div class="section-container">
         <div class="section-title reveal">
           <h2 data-fr="Me Contacter" data-en="Contact Me">Me Contacter</h2>
