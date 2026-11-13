@@ -6,14 +6,12 @@
     <title>
       Lalaina Yves - Développeur Backend PHP/Symfony & Fullstack Omnis
     </title>
-
     <!-- Favicon moderne personnalisé en SVG (Initiales LY avec dégradé) -->
     <link
       rel="icon"
       type="image/svg+xml"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%236366f1;stop-opacity:1' /><stop offset='100%' style='stop-color:%23a855f7;stop-opacity:1' /></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23grad)'/><rect x='4' y='4' width='92' height='92' rx='24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-opacity='0.25'/><text x='50%' y='62%' font-family='system-ui, -apple-system, sans-serif' font-size='42' font-weight='800' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle' letter-spacing='-1'>LY</text></svg>"
     />
-
     <!-- FontAwesome CDN pour les icônes -->
     <link
       rel="stylesheet"
@@ -552,52 +550,92 @@
     }
 
     .floating-shape.circle {
-      width: 76px; height: 76px; border-radius: 50%;
-      top: 12%; left: 7%; animation-duration: 19s;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      top: 12%;
+      left: 7%;
+      animation-duration: 19s;
     }
 
     .floating-shape.square {
-      width: 54px; height: 54px;
+      width: 54px;
+      height: 54px;
       border-color: rgba(192, 132, 252, 0.98);
-      border-radius: 12px; top: 25%; right: 10%;
-      animation-name: pageShapeRotate; animation-duration: 22s;
+      border-radius: 12px;
+      top: 25%;
+      right: 10%;
+      animation-name: pageShapeRotate;
+      animation-duration: 22s;
     }
 
     .floating-shape.ring {
-      width: 112px; height: 112px; border-width: 10px;
-      border-color: rgba(96, 165, 250, 0.48); border-radius: 50%;
-      bottom: 12%; left: 17%; animation-duration: 24s;
+      width: 112px;
+      height: 112px;
+      border-width: 10px;
+      border-color: rgba(96, 165, 250, 0.48);
+      border-radius: 50%;
+      bottom: 12%;
+      left: 17%;
+      animation-duration: 24s;
     }
 
     .floating-shape.dot {
-      width: 19px; height: 19px; border: 0; border-radius: 50%;
+      width: 19px;
+      height: 19px;
+      border: 0;
+      border-radius: 50%;
       background: rgba(192, 132, 252, 0.88);
-      top: 62%; right: 23%; animation-duration: 13s;
+      top: 62%;
+      right: 23%;
+      animation-duration: 13s;
     }
 
     .floating-shape.diamond {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border-color: rgba(129, 140, 248, 0.98);
-      border-radius: 8px; bottom: 18%; right: 8%;
-      animation-name: pageShapeRotate; animation-duration: 20s;
+      border-radius: 8px;
+      bottom: 18%;
+      right: 8%;
+      animation-name: pageShapeRotate;
+      animation-duration: 20s;
     }
 
     .floating-shape.small-circle {
-      width: 29px; height: 29px; border-radius: 50%;
+      width: 29px;
+      height: 29px;
+      border-radius: 50%;
       border-color: rgba(56, 189, 248, 0.98);
-      top: 48%; left: 48%; animation-duration: 17s;
+      top: 48%;
+      left: 48%;
+      animation-duration: 17s;
     }
 
     @keyframes pageShapeFloat {
-      0%, 100% { transform: translate3d(0, 0, 0); }
-      25% { transform: translate3d(25px, -31px, 0); }
-      50% { transform: translate3d(-13px, -57px, 0); }
-      75% { transform: translate3d(-29px, -19px, 0); }
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+      25% {
+        transform: translate3d(25px, -31px, 0);
+      }
+      50% {
+        transform: translate3d(-13px, -57px, 0);
+      }
+      75% {
+        transform: translate3d(-29px, -19px, 0);
+      }
     }
 
     @keyframes pageShapeRotate {
-      0%, 100% { transform: translate3d(0, 0, 0) rotate(25deg); }
-      50% { transform: translate3d(-23px, -43px, 0) rotate(205deg); }
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) rotate(25deg);
+      }
+      50% {
+        transform: translate3d(-23px, -43px, 0) rotate(205deg);
+      }
     }
 
     /* Higher contrast for the light theme */
@@ -612,7 +650,7 @@
     }
 
     [data-theme="light"] .floating-shape.ring {
-      border-color: rgba(37, 99, 235, 0.40);
+      border-color: rgba(37, 99, 235, 0.4);
     }
 
     [data-theme="light"] .floating-shape.dot {
@@ -624,9 +662,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .floating-shape { animation: none; }
+      .floating-shape {
+        animation: none;
+      }
     }
-
 
     /* Keep section content above its decorative floating shapes */
     body > section,
@@ -718,71 +757,185 @@
       color: var(--text-secondary);
     }
 
-    /* Services Section */
+    /* Services Section — cartes modernes et animées */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 1.8rem;
+      perspective: 1200px;
     }
 
     .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 2.5rem 2rem;
-      border-radius: var(--radius);
-      transition: var(--transition);
-      box-shadow: var(--shadow);
+      --service-accent: #818cf8;
+      position: relative;
+      isolation: isolate;
       display: flex;
       flex-direction: column;
-      position: relative;
+      min-height: 100%;
+      padding: 2.35rem 2.1rem 2.2rem;
       overflow: hidden;
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.13), transparent 42%),
+        linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.13);
+      transition:
+        transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 0.35s ease,
+        box-shadow 0.45s ease,
+        background 0.35s ease;
+      transform-style: preserve-3d;
+      animation: serviceCardEnter 0.8s both;
     }
+
+    .service-card:nth-child(1) { --service-accent: #818cf8; animation-delay: 0.08s; }
+    .service-card:nth-child(2) { --service-accent: #38bdf8; animation-delay: 0.2s; }
+    .service-card:nth-child(3) { --service-accent: #c084fc; animation-delay: 0.32s; }
 
     .service-card::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      opacity: 0;
-      transition: var(--transition);
+      inset: 0;
+      z-index: -1;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--service-accent) 75%, transparent),
+        transparent 42%,
+        color-mix(in srgb, var(--service-accent) 45%, transparent)
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.45;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      top: -105px;
+      right: -95px;
+      z-index: -1;
+      border-radius: 50%;
+      background: var(--service-accent);
+      opacity: 0.09;
+      filter: blur(2px);
+      transition: transform 0.65s ease, opacity 0.4s ease;
+      pointer-events: none;
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
-      background: var(--bg-card-hover);
-      border-color: var(--accent);
+      transform: translateY(-12px) rotateX(2deg);
+      border-color: color-mix(in srgb, var(--service-accent) 65%, var(--border-color));
+      box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.2),
+        0 0 28px color-mix(in srgb, var(--service-accent) 17%, transparent);
+      background:
+        radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--service-accent) 18%, transparent), transparent 48%),
+        linear-gradient(145deg, var(--bg-card-hover), var(--bg-secondary));
     }
 
-    .service-card:hover::before {
-      opacity: 1;
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover::after {
+      transform: scale(1.65) translate(-12px, 12px);
+      opacity: 0.16;
     }
 
     .service-icon {
-      width: 60px;
-      height: 60px;
-      background: rgba(99, 102, 241, 0.1);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 70px;
+      height: 70px;
+      margin-bottom: 1.65rem;
+      border: 1px solid color-mix(in srgb, var(--service-accent) 35%, transparent);
+      border-radius: 21px;
+      color: var(--service-accent);
+      background: color-mix(in srgb, var(--service-accent) 12%, var(--bg-secondary));
+      box-shadow: 0 8px 22px color-mix(in srgb, var(--service-accent) 13%, transparent);
+      font-size: 1.85rem;
+      transition:
+        transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-radius 0.45s ease,
+        box-shadow 0.4s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: translateY(-4px) rotate(-7deg) scale(1.08);
+      border-radius: 18px 25px 18px 25px;
+      box-shadow: 0 12px 28px color-mix(in srgb, var(--service-accent) 25%, transparent);
     }
 
     .service-card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
+      position: relative;
       margin-bottom: 1rem;
+      color: var(--text-primary);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.35px;
+      line-height: 1.3;
     }
 
+    .service-card h3::after {
+      content: "";
+      display: block;
+      width: 38px;
+      height: 3px;
+      margin-top: 0.85rem;
+      border-radius: 5px;
+      background: var(--service-accent);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover h3::after { width: 72px; }
+
     .service-card p {
+      position: relative;
       color: var(--text-secondary);
-      font-size: 0.98rem;
-      line-height: 1.7;
+      font-size: 0.96rem;
+      line-height: 1.8;
+    }
+
+    [data-theme="light"] .service-card {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.09), transparent 44%),
+        linear-gradient(145deg, #ffffff, #f8faff);
+      box-shadow: 0 14px 38px rgba(30, 41, 59, 0.08);
+    }
+
+    [data-theme="light"] .service-card:hover {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.14), transparent 48%),
+        linear-gradient(145deg, #ffffff, #f3f5ff);
+      box-shadow: 0 24px 48px rgba(49, 46, 129, 0.13);
+    }
+
+    @keyframes serviceCardEnter {
+      from { opacity: 0; transform: translateY(28px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .services-grid { gap: 1.25rem; }
+      .service-card { padding: 2rem 1.6rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .service-card,
+      .service-card::before,
+      .service-card::after,
+      .service-icon,
+      .service-card h3::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .service-card:hover { transform: none; }
     }
 
     /* Skills Section */
@@ -1091,7 +1244,6 @@
       }
     }
   </style>
-
   <body>
     <!-- Fixed Header / Navbar -->
     <header>
@@ -1103,21 +1255,21 @@
         <ul class="nav-links" id="navLinks">
           <li>
             <a href="#accueil" class="active" data-fr="Accueil" data-en="Home"
-              >Accueil</a
-            >
+              >Accueil
+            </a>
           </li>
           <li>
             <a href="#a-propos" data-fr="À-propos" data-en="About">À-propos</a>
           </li>
           <li>
             <a href="#services" data-fr="Services" data-en="Services"
-              >Services</a
-            >
+              >Services
+            </a>
           </li>
           <li>
             <a href="#competences" data-fr="Compétences" data-en="Skills"
-              >Compétences</a
-            >
+              >Compétences
+            </a>
           </li>
           <li>
             <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
@@ -1138,7 +1290,6 @@
         </div>
       </div>
     </header>
-
     <!-- Home / Hero Section (Section 1 - Odd) -->
     <section id="accueil">
       <div class="floating-shapes" aria-hidden="true">
@@ -1152,8 +1303,11 @@
       <div class="hero-container">
         <!-- Ordre 1 en mobile : Présentation avec Texte Tapé Détaillé et Badges -->
         <div class="hero-content reveal">
-          <h3 data-fr="Développeur Web Backend" data-en="Backend Web Developer">
-            Développeur Web Backend
+          <h3
+            data-fr="Développeur Web Fullstack"
+            data-en="FullStack Web Developer"
+          >
+            Développeur Web Fullstack
           </h3>
           <h1>Lalaina Yves</h1>
           <div class="typing-container">
@@ -1182,18 +1336,17 @@
             <a href="#contact" class="btn btn-primary">
               <i class="fa-regular fa-paper-plane"></i>
               <span data-fr="Me contacter" data-en="Contact Me"
-                >Me contacter</span
-              >
+                >Me contacter
+              </span>
             </a>
             <a href="#a-propos" class="btn btn-secondary">
               <i class="fa-solid fa-user"></i>
               <span data-fr="Découvrir mon profil" data-en="Discover Profile"
-                >Découvrir mon profil</span
-              >
+                >Découvrir mon profil
+              </span>
             </a>
           </div>
         </div>
-
         <!-- Ordre 2 en mobile : Carte de Code Graphic -->
         <div class="hero-graphic reveal">
           <div class="code-card">
@@ -1202,55 +1355,79 @@
               <div class="dot dot-yellow"></div>
               <div class="dot dot-green"></div>
               <span style="margin-left: auto; font-size: 0.8rem; opacity: 0.6"
-                >DeveloperController.php</span
-              >
+                >DeveloperController.php
+              </span>
             </div>
             <div class="code-body">
               <span class="code-keyword">namespace</span>
-              App\Controller;<br /><br />
+              App\Controller;
+              <br />
+              <br />
               <span class="code-keyword">class</span>
-              <span class="code-class">DeveloperController</span><br />
-              {<br />
-              &nbsp;&nbsp;[Route(<span class="code-string"
-                >'/api/developer'</span
-              >)]<br />
-              &nbsp;&nbsp;<span class="code-keyword">public function</span>
-              <span class="code-func">getProfile</span>(): JsonResponse<br />
-              &nbsp;&nbsp;{<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>
-              <span class="code-keyword">$this</span>-&gt;json([<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string"
-                >'name'</span
-              >
-              =&gt; <span class="code-string">'Lalaina Yves'</span>,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string"
-                >'role'</span
-              >
+              <span class="code-class">DeveloperController</span>
+              <br />
+              {
+              <br />
+              &nbsp;&nbsp;[Route(
+              <span class="code-string">'/api/developer' </span>)]
+              <br />
+              &nbsp;&nbsp;
+              <span class="code-keyword">public function</span>
+              <span class="code-func">getProfile</span>(): JsonResponse
+              <br />
+              &nbsp;&nbsp;{
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="code-keyword">return</span>
+              <span class="code-keyword">$this</span>-&gt;json([
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="code-string">'name' </span>
               =&gt;
-              <span class="code-string"
-                >'Backend &amp; Fullstack Specialist'</span
-              >,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string"
-                >'stack'</span
-              >
-              =&gt; [<span class="code-string">'Symfony'</span>,
-              <span class="code-string">'PHP'</span>,
-              <span class="code-string">'Omnis Studio'</span>],<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string"
-                >'status'</span
-              >
+              <span class="code-string">'Lalaina Yves'</span>,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="code-string">'role' </span>
               =&gt;
-              <span class="code-string">'Available for opportunities'</span
-              ><br />
-              &nbsp;&nbsp;&nbsp;&nbsp;]);<br />
-              &nbsp;&nbsp;}<br />
+              <span class="code-string">'Backend Senior &amp; Fullstack' </span
+              >,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="code-string">'stack' </span>
+              =&gt; [
+              <span class="code-string">'Symfony'</span>
+              ,
+              <span class="code-string">'PHP'</span>
+              ,
+              <span class="code-string">'Angular'</span>
+              ,
+              <span class="code-string">'JavaScript'</span>]
+              ,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="code-string">'IA' </span>
+              =&gt; [
+              <span class="code-string">'Claude'</span>
+              ,
+              <span class="code-string">'ChatGPT'</span>
+              ,
+              <span class="code-string">'DeepSeek'</span>] ,
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="code-string">'status' </span>
+              =&gt;
+              <span class="code-string">'Available for opportunities' </span>
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;]);
+              <br />
+              &nbsp;&nbsp;}
+              <br />
               }
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <!-- About Section (Section 2 - Even) -->
     <section id="a-propos">
       <div class="floating-shapes" aria-hidden="true">
@@ -1285,31 +1462,30 @@
                 </div>
               </div>
             </div>
-
             <p
-              data-fr="Je m'appelle **ANJARATIANA Lalaina Fiononana Yves**, j'ai 30 ans. Je suis une personne créative, organisée et autonome."
-              data-en="My name is **ANJARATIANA Lalaina Fiononana Yves**, I am 30 years old. I am a creative, organized, and autonomous person."
+              data-fr="Bonjour, je suis **ANJARATIANA Lalaina Fiononana Yves**, 30 ans. Créatif, organisé et autonome, j’aime mener mes projets avec rigueur et méthode, en m’adaptant aux besoins du moment."
+              data-en="Hello, I'm **ANJARATIANA Lalaina Fiononana Yves**, 30 years old. Creative, organized, and self-reliant, I enjoy carrying out my projects with rigor and a methodical approach, adapting to the needs of the moment."
             >
-              Je m'appelle <strong>ANJARATIANA Lalaina Fiononana Yves</strong>,
-              j'ai 30 ans. Je suis une personne créative, organisée et autonome.
+              Bonjour, je suis ANJARATIANA Lalaina Fiononana Yves, 30 ans.
+              Créatif, organisé et autonome, j’aime mener mes projets avec
+              rigueur et méthode, en m’adaptant aux besoins du moment.
             </p>
             <p
-              data-fr="Rigoureux et méthodique, je m'appuie sur une organisation efficace pour atteindre les objectifs fixés et ajuster mes actions lorsque cela est nécessaire. J'apprécie le travail en équipe, tout en étant capable de mener mes missions en totale autonomie. Enfin, je poursuis en continu le développement de mes compétences à travers un apprentissage autodidacte."
-              data-en="Rigorous and methodical, I rely on effective organization to achieve fixed goals and adjust my actions when necessary. I enjoy teamwork while being fully capable of leading my missions independently. Finally, I continuously pursue skill development through self-directed learning."
+              data-fr="Je suis aussi à l’aise au sein d’une équipe qu’en totale autonomie, et je cultive chaque jour ma curiosité à travers un apprentissage autodidacte. Développeur back-end PHP, je conçois des applications robustes et soignées, de l’idée à la mise en production."
+              data-en="I'm equally at ease working as part of a team or fully independently, and I nurture my curiosity every day through self-directed learning. As a PHP back-end developer, I build robust, polished applications, from the initial idea through to production."
             >
-              Rigoureux et méthodique, je m'appuie sur une organisation efficace
-              pour atteindre les objectifs fixés et ajuster mes actions lorsque
-              cela est nécessaire. J'apprécie le travail en équipe, tout en
-              étant capable de mener mes missions en totale autonomie. Enfin, je
-              poursuis en continu le développement de mes compétences à travers
-              un apprentissage autodidacte.
+              Je suis aussi à l’aise au sein d’une équipe qu’en totale
+              autonomie, et je cultive chaque jour ma curiosité à travers un
+              apprentissage autodidacte. Développeur back-end PHP, je conçois
+              des applications robustes et soignées, de l’idée à la mise en
+              production.
             </p>
             <div style="margin-top: 2rem">
               <a href="cv.pdf" download class="btn btn-primary">
                 <i class="fa-solid fa-download"></i>
-                <span data-fr="Télécharger mon CV" data-en="Download my CV"
-                  >Télécharger mon CV</span
-                >
+                <span data-fr="Télécharger mon CV" data-en="Download my resume"
+                  >Télécharger mon CV
+                </span>
               </a>
             </div>
           </div>
@@ -1396,7 +1572,6 @@
         </div>
       </div>
     </section>
-
     <!-- Services Section (Section 3 - Odd) -->
     <section id="services">
       <div class="floating-shapes" aria-hidden="true">
@@ -1440,14 +1615,15 @@
             </div>
             <h3>Front-End Developer</h3>
             <p
-              data-fr="Responsable de la conception et du développement des interfaces utilisateur d'application web, en garantissant une expérience utilisateur optimale, des performances élevées et une compatibilité multi-supports grâce aux technologies HTML, CSS, JavaScript et aux frameworks modernes tels qu'Angular."
-              data-en="Responsible for designing and developing web user interfaces, ensuring optimal UX, high performance, and cross-platform compatibility using HTML, CSS, JavaScript, and modern frameworks like Angular."
+              data-fr="Responsable de la conception et du développement des interfaces utilisateur d'application web, en garantissant une expérience utilisateur optimale, des performances élevées et une compatibilité multi-supports grâce aux technologies HTML, CSS, JavaScript, PHP, OMNIS Studio et aux frameworks modernes tels qu'Angular."
+              data-en="Responsible for designing and developing web user interfaces, ensuring optimal UX, high performance, and cross-platform compatibility using HTML, CSS, JavaScript, PHP, OMNIS Studio and modern frameworks like Angular."
             >
               Responsable de la conception et du développement des interfaces
               utilisateur d'application web, en garantissant une expérience
               utilisateur optimale, des performances élevées et une
               compatibilité multi-supports grâce aux technologies HTML, CSS,
-              JavaScript et aux frameworks modernes tels qu'Angular.
+              JavaScript, PHP, OMNIS Studio et aux frameworks modernes tels
+              qu'Angular.
             </p>
           </div>
           <div class="service-card reveal">
@@ -1469,7 +1645,6 @@
         </div>
       </div>
     </section>
-
     <!-- Skills Section (Section 4 - Even) -->
     <section id="competences">
       <div class="floating-shapes" aria-hidden="true">
@@ -1553,7 +1728,6 @@
         </div>
       </div>
     </section>
-
     <!-- Contact Section (Section 5 - Odd) -->
     <section class="contact" id="contact">
       <div class="floating-shapes" aria-hidden="true">
@@ -1594,15 +1768,14 @@
                 <a
                   href="http://www.linkedin.com/in/anjaratiana-lalaina-075a35236"
                   target="_blank"
-                  >anjaratiana-lalaina</a
-                >
+                  >anjaratiana-lalaina
+                </a>
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <!-- Modal "Savoir plus" -->
     <div class="modal" id="skillsModal">
       <div class="modal-content">
@@ -1616,7 +1789,6 @@
         >
           Compétences & Expériences Détaillées
         </h2>
-
         <div style="margin-bottom: 1.5rem">
           <h4
             style="font-size: 1.1rem; margin-bottom: 0.8rem"
@@ -1625,28 +1797,26 @@
           >
             🎓 Diplômes et Qualifications
           </h4>
-
           <div id="modal-diplomas-fr">
             <p class="modal-item">
               •
               <strong
-                >Licence Professionnelle en Informatique de Gestion</strong
-              >
+                >Licence Professionnelle en Informatique de Gestion
+              </strong>
               (Obtenue)
             </p>
             <p class="modal-item">
-              • <strong>Master en Informatique de Gestion</strong> (En cours
-              d'obtention)
+              •
+              <strong>Master en Informatique de Gestion</strong>
+              (En cours d'obtention)
             </p>
           </div>
-
           <div id="modal-diplomas-en" style="display: none">
             <p class="modal-item">
               •
-              <strong
-                >Professional Bachelor's Degree in Management Information
-                Systems</strong
-              >
+              <strong>
+                Professional Bachelor's Degree in Management Information Systems
+              </strong>
               (Completed)
             </p>
             <p class="modal-item">
@@ -1656,7 +1826,6 @@
             </p>
           </div>
         </div>
-
         <div>
           <h4
             style="font-size: 1.1rem; margin-bottom: 0.8rem"
@@ -1665,13 +1834,13 @@
           >
             💼 Résumé du Parcours Professionnel
           </h4>
-
           <div id="modal-career-fr">
             <p class="modal-item">
-              <strong
-                >2022 - 2026 : Développeur Back-End PHP-Symfony et Développeur
-                FullStack sur Omnis Studio</strong
-              ><br />
+              <strong>
+                2022 - 2026 : Développeur Back-End PHP-Symfony et Développeur
+                FullStack sur Omnis Studio
+              </strong>
+              <br />
               Consolidation des compétences fullstack par la participation à la
               réalisation des applications webs développées sur Omnis Studio.
               Mise en pratique dans un environnement structuré et orienté
@@ -1679,18 +1848,19 @@
               ministères de l'enseignement à Madagascar.
             </p>
             <p class="modal-item">
-              <strong>2019 - 2020 : Développeur Web Freelance PHP</strong><br />
+              <strong>2019 - 2020 : Développeur Web Freelance PHP</strong>
+              <br />
               Réalisation complète du projet de site web institutionnel pour la
               commune rurale d'Ambongamarina.
             </p>
           </div>
-
           <div id="modal-career-en" style="display: none">
             <p class="modal-item">
-              <strong
-                >2022 - 2026: PHP-Symfony Back-End Developer & Omnis Studio
-                FullStack Developer</strong
-              ><br />
+              <strong>
+                2022 - 2026: PHP-Symfony Back-End Developer & Omnis Studio
+                FullStack Developer
+              </strong>
+              <br />
               Fullstack skills consolidation by contributing to the development
               of web applications developed on Omnis Studio. Practical
               application within a structured and performance-oriented
@@ -1698,7 +1868,8 @@
               education ministries in Madagascar.
             </p>
             <p class="modal-item">
-              <strong>2019 - 2020: Freelance PHP Web Developer</strong><br />
+              <strong>2019 - 2020: Freelance PHP Web Developer</strong>
+              <br />
               Full execution of the institutional website project for the rural
               commune of Ambongamarina.
             </p>
@@ -1706,26 +1877,25 @@
         </div>
       </div>
     </div>
-
     <!-- Fixed Back to Top Button -->
     <button class="back-to-top" id="backToTopBtn" title="Retour en haut">
       <i class="fa-solid fa-arrow-up"></i>
     </button>
-
     <!-- Footer -->
     <footer>
       <p>
         <span class="lang-fr"
-          >&copy; <span class="current-year"></span> Lalaina Yves. Tous droits
-          réservés.</span
-        >
+          >&copy;
+          <span class="current-year"></span>
+          Lalaina Yves. Tous droits réservés.
+        </span>
         <span class="lang-en" style="display: none"
-          >&copy; <span class="current-year"></span> Lalaina Yves. All rights
-          reserved.</span
-        >
+          >&copy;
+          <span class="current-year"></span>
+          Lalaina Yves. All rights reserved.
+        </span>
       </p>
     </footer>
-
     <!-- JavaScript Code -->
     <script>
       // 1. Typing effect
@@ -1733,9 +1903,9 @@
         "developer",
         "designer",
         "freelancer",
-        "backend PHP",
+        "backend PHP senior",
         "Symfony enthusiast",
-        "Omnis Specialist",
+        "Omnis senior",
       ];
       let wordIndex = 0;
       let charIndex = 0;
