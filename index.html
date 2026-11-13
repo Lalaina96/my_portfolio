@@ -1243,6 +1243,44 @@
         justify-content: flex-end;
       }
     }
+
+
+    /* Projects carousel */
+    #projets { position: relative; overflow: hidden; }
+    #projets .section-container { position: relative; z-index: 1; }
+    .projects-carousel { width: min(100%, 980px); margin: 0 auto; }
+    .projects-viewport { overflow: hidden; border-radius: 28px; padding: 8px; }
+    .projects-track { display: flex; align-items: stretch; transition: transform .75s cubic-bezier(.22,.8,.25,1); will-change: transform; }
+    .project-card { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 24px; background: var(--card-bg, rgba(255,255,255,.07)); border: 1px solid var(--border-color, rgba(255,255,255,.13)); box-shadow: 0 22px 65px rgba(0,0,0,.14); backdrop-filter: blur(16px); transition: box-shadow .35s ease, border-color .35s ease; }
+    .project-card:hover { box-shadow: 0 28px 75px rgba(0,0,0,.2); border-color: rgba(99,102,241,.45); }
+    .project-visual { min-height: 390px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; isolation: isolate; background: radial-gradient(circle at 25% 20%, rgba(255,255,255,.24), transparent 32%), linear-gradient(135deg,#172554,#4338ca 55%,#0e7490); }
+    .project-visual::before,.project-visual::after { content:""; position:absolute; border-radius:50%; z-index:-1; filter:blur(1px); }
+    .project-visual::before { width:260px;height:260px;right:-95px;top:-95px;background:rgba(255,255,255,.10); }
+    .project-visual::after { width:190px;height:190px;left:-85px;bottom:-90px;background:rgba(255,255,255,.09); }
+    .project-anbg .project-visual,.project-anbg.project-card .project-visual { background:radial-gradient(circle at 75% 25%,rgba(255,255,255,.24),transparent 32%),linear-gradient(135deg,#064e3b,#0f766e 55%,#2563eb); }
+    .project-umo .project-visual { background:radial-gradient(circle at 25% 20%,rgba(255,255,255,.22),transparent 32%),linear-gradient(135deg,#4c1d95,#7c3aed 55%,#be185d); }
+    .project-commune .project-visual { background:radial-gradient(circle at 75% 20%,rgba(255,255,255,.25),transparent 32%),linear-gradient(135deg,#78350f,#b45309 55%,#0f766e); }
+    .visual-orbit { position:absolute; border:1px solid rgba(255,255,255,.18); border-radius:50%; transform:rotate(-25deg); }
+    .orbit-one { width:430px;height:180px; }.orbit-two { width:360px;height:130px;transform:rotate(35deg); }
+    .visual-window,.anbg-screen,.umo-panel,.commune-browser { position:relative; width:76%; max-width:390px; border:1px solid rgba(255,255,255,.55); border-radius:13px; background:rgba(255,255,255,.94); box-shadow:0 25px 55px rgba(5,15,45,.28); color:#1e293b; animation:projectFloat 6s ease-in-out infinite; }
+    .visual-window-bar,.commune-browser-head { height:30px; display:flex; align-items:center; gap:5px; padding:0 11px; background:#e2e8f0; border-radius:12px 12px 0 0; }
+    .visual-window-bar i,.commune-browser-head i { width:6px;height:6px;border-radius:50%;background:#94a3b8; }.visual-window-bar span,.commune-browser-head span { margin-left:8px;font-size:8px;color:#64748b;letter-spacing:.4px; }
+    .pta-dashboard { display:flex; height:225px; padding:13px; gap:12px; }.pta-sidebar { width:34px; border-radius:6px;background:#172554;padding:10px 8px;display:flex;flex-direction:column;gap:12px; }.pta-sidebar b {height:5px;border-radius:5px;background:#93c5fd;opacity:.8;}
+    .pta-content { flex:1; }.pta-heading { width:46%;height:9px;border-radius:5px;background:#334155;margin:3px 0 14px; }.pta-stats { display:flex;gap:7px; }.pta-stats i { height:38px;flex:1;border-radius:5px;background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-bottom:3px solid #3b82f6; }.pta-stats i:nth-child(2){background:linear-gradient(135deg,#dcfce7,#bbf7d0);border-color:#10b981;}.pta-stats i:nth-child(3){background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#f59e0b;}
+    .pta-chart { height:83px;margin-top:11px;display:flex;align-items:end;gap:8px;padding:8px 10px;border-radius:6px;background:#f1f5f9; }.pta-chart span {flex:1;border-radius:4px 4px 0 0;background:linear-gradient(#60a5fa,#2563eb);height:var(--h,50%);}.pta-chart span:nth-child(1){height:38%}.pta-chart span:nth-child(2){height:65%}.pta-chart span:nth-child(3){height:48%}.pta-chart span:nth-child(4){height:78%}.pta-chart span:nth-child(5){height:58%}.pta-chart span:nth-child(6){height:88%}.pta-chart span:nth-child(7){height:72%}.pta-lines {display:flex;gap:7px;margin-top:9px}.pta-lines i{height:4px;flex:1;background:#cbd5e1;border-radius:4px;}
+    .visual-chip { position:absolute; display:flex;align-items:center;gap:7px;padding:9px 13px;border-radius:30px;background:rgba(255,255,255,.94);color:#1e293b;font-size:11px;font-weight:800;box-shadow:0 10px 28px rgba(0,0,0,.2);animation:chipFloat 5s ease-in-out infinite; }.visual-chip i{color:#4f46e5}.chip-left{left:5%;bottom:17%;}.chip-right{right:4%;top:17%;animation-delay:-2s;}
+    .anbg-screen {padding:0 15px 13px;}.anbg-top{height:47px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e2e8f0}.anbg-mark{width:26px;height:26px;border-radius:8px;background:#0f766e;color:white;display:grid;place-items:center}.anbg-top-lines{flex:1}.anbg-top-lines i{display:block;height:4px;width:50%;margin:4px;background:#94a3b8;border-radius:4px}.anbg-top>b{width:38px;height:12px;border-radius:8px;background:#99f6e4}.anbg-body{display:flex;gap:13px;padding:17px 4px}.anbg-copy{flex:1;padding-top:8px}.anbg-copy i{display:block;height:7px;border-radius:5px;background:#cbd5e1;margin:0 0 10px;width:90%}.anbg-copy i:nth-child(2){width:72%}.anbg-copy i:nth-child(3){width:82%}.anbg-copy span{display:block;width:65px;height:20px;background:#0f766e;border-radius:5px;margin-top:17px}.anbg-profile{width:105px;padding:10px;background:#f1f5f9;border-radius:9px}.anbg-avatar{height:66px;border-radius:7px;background:linear-gradient(135deg,#99f6e4,#bfdbfe);display:grid;place-items:center;color:#0f766e;font-size:27px;margin-bottom:8px}.anbg-profile>i{display:block;height:4px;border-radius:5px;background:#cbd5e1;margin:5px auto;width:80%}.anbg-footer{display:flex;gap:8px}.anbg-footer i{height:22px;flex:1;background:#ccfbf1;border-radius:5px}
+    .umo-panel{padding:17px;width:78%}.umo-panel-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:#334155}.umo-panel-head i{color:#7c3aed;margin-right:6px}.umo-summary{display:flex;gap:10px;margin:17px 0}.umo-summary div{flex:1;background:#f5f3ff;border-radius:8px;padding:10px;display:grid;grid-template-columns:22px 1fr;align-items:center}.umo-summary i{grid-row:span 2;color:#7c3aed}.umo-summary b{font-size:16px}.umo-summary small{font-size:8px;color:#64748b}.umo-team{height:105px;position:relative;display:flex;justify-content:center;align-items:flex-start;gap:13px;padding-top:5px}.umo-person{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#ede9fe;color:#7c3aed;border:2px solid white;box-shadow:0 3px 8px #c4b5fd;z-index:1}.person-a{position:absolute;top:0;left:calc(50% - 17px);background:#7c3aed;color:white}.person-b,.person-c{position:absolute;top:57px;left:calc(50% - 62px)}.person-c{left:calc(50% + 28px);background:#fce7f3;color:#be185d}.person-d{position:absolute;top:57px;left:calc(50% - 17px);background:#dbeafe;color:#2563eb}.umo-team>span{position:absolute;width:115px;height:42px;top:31px;border-top:2px solid #c4b5fd;border-left:2px solid #c4b5fd;border-right:2px solid #c4b5fd;border-radius:8px 8px 0 0}
+    .commune-browser{overflow:hidden}.commune-hero{height:155px;position:relative;overflow:hidden;background:linear-gradient(160deg,#bae6fd,#d9f99d 65%,#86efac)}.commune-sun{position:absolute;right:18%;top:18px;width:30px;height:30px;border-radius:50%;background:#fbbf24;box-shadow:0 0 25px #fcd34d}.commune-hill{position:absolute;bottom:-40px;width:120%;height:100px;border-radius:50% 50% 0 0}.hill-one{left:-20%;background:#16a34a;transform:rotate(-8deg)}.hill-two{right:-35%;bottom:-55px;background:#0f766e;transform:rotate(8deg)}.commune-title-lines{position:absolute;top:35px;left:18px;z-index:2}.commune-title-lines i{display:block;width:100px;height:6px;border-radius:4px;background:#fff;margin-bottom:7px;box-shadow:0 1px 3px #64748b}.commune-title-lines i:nth-child(2){width:68px}.commune-title-lines b{display:block;width:45px;height:15px;border-radius:4px;background:#b45309;margin-top:12px}.commune-cards{display:flex;gap:9px;padding:13px}.commune-cards i{height:55px;flex:1;border-radius:5px;background:#f1f5f9;padding:7px}.commune-cards b{display:block;width:70%;height:5px;background:#cbd5e1;border-radius:5px;margin-top:28px}
+    .project-content{padding:34px 31px;display:flex;flex-direction:column;justify-content:center;min-height:390px}.project-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:17px}.project-category{font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#6366f1;background:rgba(99,102,241,.12);padding:7px 10px;border-radius:20px}.project-date{font-size:11px;color:var(--text-secondary);font-weight:700}.project-content h3{font-size:clamp(21px,2.4vw,29px);line-height:1.2;margin:0 0 14px;color:var(--text-primary);}.project-content p{font-size:14px;line-height:1.8;color:var(--text-secondary);margin:0 0 19px}.project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:21px}.project-tags span{font-size:10px;font-weight:700;padding:6px 10px;border:1px solid var(--border-color,rgba(148,163,184,.3));border-radius:7px;color:var(--text-primary);background:rgba(148,163,184,.08)}.project-role{display:flex;align-items:flex-start;gap:10px;padding-top:16px;border-top:1px solid var(--border-color,rgba(148,163,184,.2));font-size:12px;font-weight:700;line-height:1.6;color:var(--text-primary)}.project-role i{color:#6366f1;margin-top:2px}
+    .projects-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin:24px auto 0}.project-arrow{width:43px;height:43px;border:1px solid var(--border-color,rgba(148,163,184,.35));border-radius:50%;display:grid;place-items:center;background:var(--card-bg,rgba(255,255,255,.08));color:var(--text-primary);cursor:pointer;transition:all .25s ease}.project-arrow:hover{transform:translateY(-3px);background:#6366f1;color:#fff;border-color:#6366f1;box-shadow:0 8px 22px rgba(99,102,241,.3)}.projects-pagination{display:flex;align-items:center;gap:8px}.project-dot{width:8px;height:8px;padding:0;border:0;border-radius:20px;background:var(--text-secondary);opacity:.35;cursor:pointer;transition:all .35s ease}.project-dot.active{width:27px;opacity:1;background:#6366f1}.projects-counter{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+    @keyframes projectFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    [data-theme="light"] .project-card{background:rgba(255,255,255,.92);border-color:rgba(100,116,139,.16);box-shadow:0 20px 55px rgba(30,41,59,.10)}
+    [data-theme="light"] .project-content p,[data-theme="light"] .project-date{color:#64748b}
+    @media(max-width:760px){.project-card{grid-template-columns:1fr}.project-visual{min-height:275px}.project-content{min-height:0;padding:25px 23px 28px}.visual-window,.anbg-screen,.umo-panel,.commune-browser{max-width:330px}.pta-dashboard{height:190px}.projects-viewport{padding:3px}.projects-controls{gap:13px;margin-top:18px}}
+    @media(max-width:420px){.project-visual{min-height:240px}.visual-chip{font-size:9px;padding:7px 9px}.project-content{padding:22px 18px}.project-meta{margin-bottom:13px}.projects-controls{gap:10px}.project-arrow{width:38px;height:38px}.projects-counter{font-size:10px}}
+    @media(prefers-reduced-motion:reduce){.projects-track,.project-arrow,.project-dot,.visual-window,.anbg-screen,.umo-panel,.commune-browser,.visual-chip{animation:none!important;transition:none!important}}
+
   </style>
   <body>
     <!-- Fixed Header / Navbar -->
@@ -1265,6 +1303,9 @@
             <a href="#services" data-fr="Services" data-en="Services"
               >Services
             </a>
+          </li>
+          <li>
+            <a href="#projets" data-fr="Mes projets" data-en="My projects">Mes projets</a>
           </li>
           <li>
             <a href="#competences" data-fr="Compétences" data-en="Skills"
@@ -1641,6 +1682,122 @@
               en garantissant la qualité, la performance et la sécurité des
               solutions développées.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section: inserted after Services -->
+    <section id="projets">
+      <div class="floating-shapes" aria-hidden="true">
+        <span class="floating-shape circle"></span>
+        <span class="floating-shape square"></span>
+        <span class="floating-shape ring"></span>
+        <span class="floating-shape dot"></span>
+        <span class="floating-shape diamond"></span>
+        <span class="floating-shape small-circle"></span>
+      </div>
+      <div class="section-container">
+        <div class="section-title reveal">
+          <h2 data-fr="Mes projets" data-en="My projects">Mes projets</h2>
+          <p data-fr="Quelques réalisations professionnelles qui illustrent mon parcours et mon expertise" data-en="Selected professional projects showcasing my experience and technical expertise">Quelques réalisations professionnelles qui illustrent mon parcours et mon expertise</p>
+        </div>
+
+        <div class="projects-carousel reveal" aria-roledescription="carrousel" aria-label="Mes projets professionnels">
+          <div class="projects-viewport">
+            <div class="projects-track" id="projectsTrack">
+              <article class="project-card project-pta" aria-label="Projet 1 sur 4">
+                <div class="project-visual" role="img" aria-label="Illustration d'une plateforme de planification avec tableaux de bord et graphiques">
+                  <span class="visual-orbit orbit-one"></span><span class="visual-orbit orbit-two"></span>
+                  <div class="visual-window">
+                    <div class="visual-window-bar"><i></i><i></i><i></i><span>PTA · Dashboard</span></div>
+                    <div class="pta-dashboard">
+                      <div class="pta-sidebar"><b></b><b></b><b></b><b></b></div>
+                      <div class="pta-content"><div class="pta-heading"></div><div class="pta-stats"><i></i><i></i><i></i></div><div class="pta-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="pta-lines"><i></i><i></i><i></i></div></div>
+                    </div>
+                  </div>
+                  <span class="visual-chip chip-left"><i class="fa-solid fa-chart-line"></i> Planning</span>
+                  <span class="visual-chip chip-right"><i class="fa-solid fa-building-columns"></i> 3 ministères</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-meta"><span class="project-category" data-fr="Application web" data-en="Web application">Application web</span><span class="project-date">Fév. 2022 — Fév. 2026</span></div>
+                  <h3>Plan de Travail Annuel (PTA)</h3>
+                  <p data-fr="Application web destinée aux trois ministères de l’Enseignement à Madagascar. Elle permet de planifier et de suivre les projets de chaque ministère tout au long de l’année." data-en="A web application for the three education ministries in Madagascar, designed to plan and monitor each ministry’s projects throughout the year.">Application web destinée aux trois ministères de l’Enseignement à Madagascar. Elle permet de planifier et de suivre les projets de chaque ministère tout au long de l’année.</p>
+                  <div class="project-tags"><span>Symfony</span><span>PHP</span><span>Omnis Studio</span><span>API</span></div>
+                  <div class="project-role"><i class="fa-solid fa-code"></i><span data-fr="Développeur back-end Symfony / fullstack Omnis Studio" data-en="Symfony back-end developer / Omnis Studio full-stack developer">Développeur back-end Symfony / fullstack Omnis Studio</span></div>
+                </div>
+              </article>
+
+              <article class="project-card project-anbg" aria-label="Projet 2 sur 4">
+                <div class="project-visual" role="img" aria-label="Illustration d'un portail numérique de gestion des bourses étudiantes">
+                  <span class="visual-orbit orbit-one"></span><span class="visual-orbit orbit-two"></span>
+                  <div class="anbg-screen">
+                    <div class="anbg-top"><span class="anbg-mark"><i class="fa-solid fa-graduation-cap"></i></span><span class="anbg-top-lines"><i></i><i></i></span><b></b></div>
+                    <div class="anbg-body"><div class="anbg-copy"><i></i><i></i><i></i><span></span></div><div class="anbg-profile"><div class="anbg-avatar"><i class="fa-solid fa-user-graduate"></i></div><i></i><i></i><i></i></div></div>
+                    <div class="anbg-footer"><i></i><i></i><i></i></div>
+                  </div>
+                  <span class="visual-chip chip-left"><i class="fa-solid fa-award"></i> Bourses</span>
+                  <span class="visual-chip chip-right"><i class="fa-solid fa-globe-africa"></i> Gabon</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-meta"><span class="project-category" data-fr="Web service" data-en="Web service">Web service</span><span class="project-date">Fév. 2022 — Mai 2022</span></div>
+                  <h3>ANBG</h3>
+                  <p data-fr="Web service destiné aux boursiers gabonais, conçu pour faciliter l’accès aux services et aux informations liés à leur parcours de bourse." data-en="A web service for Gabonese scholarship recipients, designed to make scholarship-related services and information easier to access.">Web service destiné aux boursiers gabonais, conçu pour faciliter l’accès aux services et aux informations liés à leur parcours de bourse.</p>
+                  <div class="project-tags"><span>Angular</span><span>TypeScript</span><span>Front-end</span></div>
+                  <div class="project-role"><i class="fa-solid fa-laptop-code"></i><span data-fr="Développeur front-end Angular" data-en="Angular front-end developer">Développeur front-end Angular</span></div>
+                </div>
+              </article>
+
+              <article class="project-card project-umo" aria-label="Projet 3 sur 4">
+                <div class="project-visual" role="img" aria-label="Illustration d'une interface de gestion des ressources humaines avec profils et organigramme">
+                  <span class="visual-orbit orbit-one"></span><span class="visual-orbit orbit-two"></span>
+                  <div class="umo-panel">
+                    <div class="umo-panel-head"><span><i class="fa-solid fa-users"></i> Team overview</span><b>•••</b></div>
+                    <div class="umo-summary"><div><i class="fa-solid fa-user-group"></i><b>248</b><small>Employees</small></div><div><i class="fa-solid fa-calendar-check"></i><b>92%</b><small>Attendance</small></div></div>
+                    <div class="umo-team"><div class="umo-person person-a"><i class="fa-solid fa-user"></i></div><span></span><div class="umo-person person-b"><i class="fa-solid fa-user"></i></div><div class="umo-person person-c"><i class="fa-solid fa-user"></i></div><div class="umo-person person-d"><i class="fa-solid fa-user"></i></div></div>
+                  </div>
+                  <span class="visual-chip chip-left"><i class="fa-solid fa-people-group"></i> Équipe</span>
+                  <span class="visual-chip chip-right"><i class="fa-solid fa-earth-africa"></i> Afrique</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-meta"><span class="project-category" data-fr="Web service" data-en="Web service">Web service</span><span class="project-date">Juin 2022 — Fév. 2026</span></div>
+                  <h3>UMO</h3>
+                  <p data-fr="Web service destiné aux sociétés en Afrique. La solution vise à simplifier la gestion des ressources humaines au sein d’une entreprise." data-en="A web service for companies across Africa, built to simplify human resources management within an organization.">Web service destiné aux sociétés en Afrique. La solution vise à simplifier la gestion des ressources humaines au sein d’une entreprise.</p>
+                  <div class="project-tags"><span>Omnis Studio</span><span>Fullstack</span><span>RH</span></div>
+                  <div class="project-role"><i class="fa-solid fa-layer-group"></i><span data-fr="Développeur fullstack Omnis Studio" data-en="Omnis Studio full-stack developer">Développeur fullstack Omnis Studio</span></div>
+                </div>
+              </article>
+
+              <article class="project-card project-commune" aria-label="Projet 4 sur 4">
+                <div class="project-visual" role="img" aria-label="Illustration d'un site web institutionnel pour une commune">
+                  <span class="visual-orbit orbit-one"></span><span class="visual-orbit orbit-two"></span>
+                  <div class="commune-browser">
+                    <div class="commune-browser-head"><i></i><i></i><i></i><span>ambongamarina.mg</span></div>
+                    <div class="commune-hero"><div class="commune-sun"></div><div class="commune-hill hill-one"></div><div class="commune-hill hill-two"></div><div class="commune-title-lines"><i></i><i></i><b></b></div></div>
+                    <div class="commune-cards"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+                  </div>
+                  <span class="visual-chip chip-left"><i class="fa-solid fa-landmark"></i> Commune</span>
+                  <span class="visual-chip chip-right"><i class="fa-solid fa-code"></i> PHP</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-meta"><span class="project-category" data-fr="Site web institutionnel" data-en="Institutional website">Site web institutionnel</span><span class="project-date">Mai 2019 — Juin 2020</span></div>
+                  <h3>Commune rurale d’Ambongamarina</h3>
+                  <p data-fr="Conception et développement d’un site web pour la commune rurale d’Ambongamarina, afin de présenter les informations et les services de la commune." data-en="Designed and developed a website for the rural commune of Ambongamarina to present local information and municipal services.">Conception et développement d’un site web pour la commune rurale d’Ambongamarina, afin de présenter les informations et les services de la commune.</p>
+                  <div class="project-tags"><span>PHP</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                  <div class="project-role"><i class="fa-solid fa-code"></i><span data-fr="Développeur PHP" data-en="PHP developer">Développeur PHP</span></div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="projects-controls">
+            <button class="project-arrow" id="projectsPrev" type="button" aria-label="Projet précédent"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="projects-pagination" id="projectsPagination" aria-label="Choisir un projet">
+              <button class="project-dot active" type="button" aria-label="Afficher le projet 1" aria-current="true"></button>
+              <button class="project-dot" type="button" aria-label="Afficher le projet 2"></button>
+              <button class="project-dot" type="button" aria-label="Afficher le projet 3"></button>
+              <button class="project-dot" type="button" aria-label="Afficher le projet 4"></button>
+            </div>
+            <span class="projects-counter" id="projectsCounter">01 / 04</span>
+            <button class="project-arrow" id="projectsNext" type="button" aria-label="Projet suivant"><i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -2093,6 +2250,41 @@
           modal.classList.remove("active");
         }
       });
+
+
+      // 5. Carrousel des projets
+      (() => {
+        const track = document.getElementById("projectsTrack");
+        const prev = document.getElementById("projectsPrev");
+        const next = document.getElementById("projectsNext");
+        const dots = Array.from(document.querySelectorAll(".project-dot"));
+        const counter = document.getElementById("projectsCounter");
+        if (!track || !prev || !next || !counter || !dots.length) return;
+        const slides = Array.from(track.children);
+        let activeProject = 0;
+        let touchStartX = 0;
+        const showProject = (index) => {
+          activeProject = (index + slides.length) % slides.length;
+          track.style.transform = `translateX(-${activeProject * 100}%)`;
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === activeProject);
+            if (i === activeProject) dot.setAttribute("aria-current", "true");
+            else dot.removeAttribute("aria-current");
+          });
+          counter.textContent = `${String(activeProject + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+          slides.forEach((slide, i) => slide.setAttribute("aria-hidden", i === activeProject ? "false" : "true"));
+        };
+        prev.addEventListener("click", () => showProject(activeProject - 1));
+        next.addEventListener("click", () => showProject(activeProject + 1));
+        dots.forEach((dot, i) => dot.addEventListener("click", () => showProject(i)));
+        const viewport = track.parentElement;
+        viewport.addEventListener("touchstart", (event) => { touchStartX = event.changedTouches[0].screenX; }, { passive: true });
+        viewport.addEventListener("touchend", (event) => {
+          const delta = event.changedTouches[0].screenX - touchStartX;
+          if (Math.abs(delta) > 45) showProject(activeProject + (delta < 0 ? 1 : -1));
+        }, { passive: true });
+        showProject(0);
+      })();
     </script>
   </body>
 </html>
